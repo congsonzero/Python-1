@@ -18,6 +18,19 @@ while j<i:
     j=j+1
 vanban="{}..."
 print(vanban.format(chuoi))
+f=open("tucam.txt","r")
+L=f.readlines()
+t=0
+while t<len(L):
+    if L[t] in chuoi:
+        chuoi=chuoi.replace(L[t],"***")
+    t=t+1
+print(chuoi)
+
+
+
+
+
 
 
 
