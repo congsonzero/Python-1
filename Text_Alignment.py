@@ -1,4 +1,4 @@
- thickness = int(input()) #This must be an odd number
+thickness = int(input()) #This must be an odd number
 c = 'H'
 
 #Top Cone
