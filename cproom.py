@@ -1,0 +1,5 @@
+K=int(input())
+R=list(map(int,input().split()))
+r=set(R)
+cr=(sum(r)*K-sum(R))//(K-1)
+print(cr)
