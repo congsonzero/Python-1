@@ -11,21 +11,24 @@ print("""Menu
 2.Danh sach hoc sinh
 3 Xoa hoc sinh""")
 choice=int(input("Lua chon cua ban:"))
+i=0
 if choice ==1:
-    hoten=input()
+    hoten=input("Nhap ten: ")
     Hoten=hoten.split(" ")
-    tucam=['Ho Chi Minh','Nguyen Cong Son','A B C D']
-    if hoten=="" or hoten.isspace() == True or any(i.isalpha()==False for i in Hoten):
+    tucam=['Ho Chi Minh','Nguyen Cong Son','Vo Nguyen Giap']
+    if hoten=="" or hoten.isspace() == True :
         print("Vui long nhap lai")
     else:
-        if hoten in tucam:
-            for i in range(len(Hoten)):
-                hoten=hoten.replace(Hoten[i],"***")
-        age=int(input())
+        for j in range(len(tucam)):
+            if tucam[j] in hoten :
+                Tcam=tucam[j].split(" ")
+                for i in range(len(Tcam)):
+                    hoten=hoten.replace(Tcam[i],"***")
+        age=int(input("Nhap tuoi:"))
         if age<6 or age>18:
             print("Ban qua tuoi")
         else:
-            phone=input()
+            phone=input("Nhap so dt: ")
             f=open("nhamang.txt","r")
             daumangVN=f.read()
             f.close()
@@ -33,7 +36,7 @@ if choice ==1:
                 phone="0"+phone[3:]
             elif phone[0]=="8":
                 phone="0"+phone[2:]
-            if len(phone)>10 or phone.isdigit()==False:
+            if len(phone)>10 :
                 print("So dt khong hop le")
             else:
                 if phone[0:3] in daumangVN:
@@ -49,9 +52,17 @@ elif choice ==2:
     for x in myresult:
         print(str(x[0])+"--"+x[1]+"--"+str(x[2])+"--"+x[3])    
 elif choice ==3:
-    ID=int(input("Nhap so thu tu can xoa"))
-    sql="Delete FROM sinhvien WHERE id=ID"
-    mycursor.execute(sql)
-    mydb.commit()
+    ID=int(input("Nhap so thu tu can xoa: "))
+    mycursor.execute("SELECT * FROM sinhvien")
+    myresult = mycursor.fetchall()   
+    for x in myresult:
+        if ID == x[0]  : 
+            sql = "DELETE FROM sinhvien WHERE id = %s"
+            adr = (ID, )
+            mycursor.execute(sql, adr)
+            mydb.commit()
+            i=1
+    if i==0:
+        print("ID ko hop le")
 else:
     print("Lua chon khong hop le")
