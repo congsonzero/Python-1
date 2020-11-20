@@ -403,4 +403,38 @@
 #     print ("Yes")
 # else:
 #     print ("No")
+#bai 45
+# li = [1,2,3,4,5,6,7,8,9,10]
+# evenNumber=list(filter(lambda x: x%2==0,li))
+# print(evenNumber)
+# bai 46
+# li = [1,2,3,4,5,6,7,8,9,10]
+# QNumber=list(map(lambda x: x*x,li))
+# print(evenNumber)
+# bai 47
+# li = [1,2,3,4,5,6,7,8,9,10]
+# QevenNumber=list(map(lambda x: x**2,filter(lambda x: x%2==0,li)))
+# print(QevenNumber)
+# bai 48
+# evenNumber=list(filter(lambda x: x%2==0,range(1,21)))
+# print(evenNumber)
+# bai 49
+# squaredNumbers = list(map(lambda x: x ** 2, range (1,21)))
+# print (squaredNumbers)
 
+
+# bai 96
+chuoi=input("Nhập chuỗi vào đây: ")
+ # Code by Quantrimang.com
+chuoi = chuoi[::2]
+print (chuoi)
+# bai 97
+# import itertools
+# print (list(itertools.permutations([1,2,3])))
+# bai 98
+# def giai(dau,chan):
+#     for i in range(1,dau):
+#         if (35-i)*4+2*i==chan:
+#             print(str(i)+","+str(dau-i))
+# dau,chan=map(int,input().split())
+# giai(dau,chan)
